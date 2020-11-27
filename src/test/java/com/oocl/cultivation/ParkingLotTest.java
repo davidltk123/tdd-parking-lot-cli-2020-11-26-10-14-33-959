@@ -1,7 +1,6 @@
 package com.oocl.cultivation;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -33,6 +32,23 @@ public class ParkingLotTest {
         //then
         assertNotNull(ticket1);
         assertNull(ticket2);
+    }
+
+    @Test
+    public void should_parked_multiple_cars_when_multiple_cars_given_and_parking_lot_has_available_capacity() {
+        //given
+        Car car1 = new Car();
+        Car car2 = new Car();
+        ParkingLot parkingLot = new ParkingLot(2);
+
+        //when
+        Ticket ticket1 = parkingLot.park(car1);
+        Ticket ticket2 = parkingLot.park(car2);
+
+        //then
+        assertNotNull(ticket1);
+        assertNotNull(ticket2);
+        assertNotEquals(ticket1,ticket2);
     }
 
     @Test
