@@ -28,4 +28,8 @@ public class ParkingLot {
         }
         return null;
     }
+
+    public Map<Ticket, Car> getTicketCarMap(){
+        return this.ticketCarMap;
+    }
 }
