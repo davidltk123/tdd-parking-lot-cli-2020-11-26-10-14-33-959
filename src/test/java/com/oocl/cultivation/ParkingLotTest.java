@@ -1,0 +1,52 @@
+package com.oocl.cultivation;
+
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ParkingLotTest {
+    @Test
+    public void should_return_parking_ticket_when_park_the_car_given_a_car_and_parking_lot_has_available_capacity() {
+        //given
+        Car car = new Car();
+        ParkingLot parkingLot = new ParkingLot(1);
+
+        //when
+        Ticket ticket = parkingLot.park(car);
+
+        //then
+        assertNotNull(ticket);
+    }
+
+    @Test
+    public void should_only_one_car_parked_when_multiple_cars_given_and_parking_lot_has_1_capacity() {
+        //given
+        Car car1 = new Car();
+        Car car2 = new Car();
+        ParkingLot parkingLot = new ParkingLot(1);
+
+        //when
+        Ticket ticket1 = parkingLot.park(car1);
+        Ticket ticket2 = parkingLot.park(car2);
+
+        //then
+        assertNotNull(ticket1);
+        assertNull(ticket2);
+    }
+
+    @Test
+    public void should_be_fetched__when_fetch_car_given_valid_parking_ticket_and_parking_lot_that_parked_the_car() {
+        //given
+        ParkingLot parkingLot = new ParkingLot(1);
+        Car car = new Car();
+        Ticket ticket = parkingLot.park(car);
+
+        //when
+        Car actual = parkingLot.fetch(ticket);
+
+        //then
+        assertEquals(car,actual);
+    }
+
+}
