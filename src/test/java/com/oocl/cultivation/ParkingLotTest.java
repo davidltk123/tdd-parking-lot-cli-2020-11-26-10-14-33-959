@@ -80,4 +80,21 @@ public class ParkingLotTest {
         assertNull(actual);
     }
 
+    @Test
+    public void should_be_no_car_fetched_when_fetch_car_given_fake_parking_ticket() {
+        //given
+        ParkingLot parkingLot = new ParkingLot(1);
+        Car car = new Car();
+        parkingLot.park(car);
+        Ticket fakeTicket = new Ticket();
+
+        //when
+        Car actual = parkingLot.fetch(fakeTicket);
+
+        //then
+        assertNull(actual);
+    }
+
+
+
 }
