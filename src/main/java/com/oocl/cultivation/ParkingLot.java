@@ -22,13 +22,14 @@ public class ParkingLot {
         return ticket;
     }
 
-    public Car fetch(Ticket ticket){
+    public Car fetch(Ticket ticket) throws UnrecognizedParkingTicketException {
         Car car;
         if(ticketCarMap.containsKey(ticket)){
             car = this.ticketCarMap.remove(ticket);
             return car;
         }
-        return null;
+        //return null;
+        throw new UnrecognizedParkingTicketException();
     }
 
 }
