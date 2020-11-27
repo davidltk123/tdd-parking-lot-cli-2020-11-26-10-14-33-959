@@ -52,7 +52,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    public void should_be_fetched__when_fetch_car_given_valid_parking_ticket_and_parking_lot_that_parked_the_car() {
+    public void should_be_fetched_when_fetch_car_given_valid_parking_ticket_and_parking_lot_that_parked_the_car() {
         //given
         ParkingLot parkingLot = new ParkingLot(1);
         Car car = new Car();
@@ -63,6 +63,21 @@ public class ParkingLotTest {
 
         //then
         assertEquals(car,actual);
+    }
+
+    @Test
+    public void should_be_no_car_fetched_when_fetch_car_given_ticket_has_been_used() {
+        //given
+        ParkingLot parkingLot = new ParkingLot(1);
+        Car car = new Car();
+        Ticket ticket = parkingLot.park(car);
+        Car fetchedCar = parkingLot.fetch(ticket);
+
+        //when
+        Car actual = parkingLot.fetch(ticket);
+
+        //then
+        assertNull(actual);
     }
 
 }
