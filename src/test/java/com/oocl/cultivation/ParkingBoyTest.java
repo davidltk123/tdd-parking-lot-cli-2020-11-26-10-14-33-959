@@ -9,7 +9,7 @@ import static org.mockito.Mockito.times;
 
 class ParkingBoyTest {
     @Test
-    public void should_parking_boy_calling_parking_lot_park_function_when_park_the_car_given_parking_lot_has_available_capacity() {
+    public void should_parking_boy_calling_parking_lot_park_function_when_park_the_car_given_parking_lot_has_available_capacity() throws NotEnoughPositionException {
         //given
         ParkingLot parkingLot = Mockito.mock(ParkingLot.class);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
@@ -24,7 +24,7 @@ class ParkingBoyTest {
     }
 
     @Test
-    public void should_parking_boy_calling_fetch_car_when_fetch_the_car_given_parking_ticket_is_valid() {
+    public void should_parking_boy_calling_fetch_car_when_fetch_the_car_given_parking_ticket_is_valid() throws NotEnoughPositionException {
         //given
         ParkingLot parkingLot = Mockito.mock(ParkingLot.class);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);

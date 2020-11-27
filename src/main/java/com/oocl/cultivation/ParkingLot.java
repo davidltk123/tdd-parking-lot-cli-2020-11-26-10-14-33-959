@@ -12,9 +12,10 @@ public class ParkingLot {
         ticketCarMap = new HashMap<Ticket, Car>();
     }
 
-    public Ticket park(Car car){
+    public Ticket park(Car car) throws NotEnoughPositionException {
         if(CAPACITY - this.ticketCarMap.size() <=0){
-            return null;
+            throw new NotEnoughPositionException();
+            //return null;
         }
         Ticket ticket = new Ticket();
         ticketCarMap.put(ticket,car);
@@ -22,14 +23,12 @@ public class ParkingLot {
     }
 
     public Car fetch(Ticket ticket){
+        Car car;
         if(ticketCarMap.containsKey(ticket)){
-            this.ticketCarMap.remove(ticket);
-            return this.ticketCarMap.get(ticket);
+            car = this.ticketCarMap.remove(ticket);
+            return car;
         }
         return null;
     }
 
-    public Map<Ticket, Car> getTicketCarMap(){
-        return this.ticketCarMap;
-    }
 }
