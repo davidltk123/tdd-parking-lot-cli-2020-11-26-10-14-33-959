@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingLotServiceManagerTest {
     @Test
-    public void should_add_parking_boy_to_management_list_when_add_into_list_given_manager_add_a_parking_boy() {
+    public void should_add_parking_boy_to_management_list_when_add_into_list_given_parking_boys() {
         //given
         ParkingLotServiceManager parkingLotServiceManager = new ParkingLotServiceManager(new ArrayList<>());
         ParkingBoy parkingBoy = new ParkingBoy(new ArrayList<>());
@@ -23,5 +23,24 @@ public class ParkingLotServiceManagerTest {
         assertEquals(true,parkingLotServiceManager.getManagementList().contains(parkingBoy));
         assertEquals(true,parkingLotServiceManager.getManagementList().contains(smartParkingBoy));
         assertEquals(true,parkingLotServiceManager.getManagementList().contains(superSmartParkingBoy));
+    }
+
+    @Test
+    public void should_return_ticket_when_specify_parking_boy_to_park_given_a_parking_boy() {
+        //given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        ParkingLot parkingLot = new ParkingLot(1);
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+
+        ParkingLotServiceManager parkingLotServiceManager = new ParkingLotServiceManager(new ArrayList<>());
+        parkingLotServiceManager.addToManagementList(parkingBoy);
+        Car car = new Car();
+
+        //when
+        Ticket ticket = parkingLotServiceManager.specifyParkingBoyToPark(car,parkingBoy);
+
+        //then
+        assertNotNull(ticket);
     }
 }

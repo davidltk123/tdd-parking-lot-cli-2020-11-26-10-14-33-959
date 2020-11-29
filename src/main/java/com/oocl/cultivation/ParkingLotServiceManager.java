@@ -22,4 +22,8 @@ public class ParkingLotServiceManager extends ParkingBoy{
     public List<ParkingBoy> getManagementList(){
         return this.managementList;
     }
+
+    public Ticket specifyParkingBoyToPark(Car car, ParkingBoy parkingBoy) {
+        return null;
+    }
 }
