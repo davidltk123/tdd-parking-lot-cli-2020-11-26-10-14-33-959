@@ -75,7 +75,7 @@ class ParkingBoyTest {
         Car car2 = new Car();
 
         //when
-        Ticket ticket1 = parkingBoy.park(car1);
+        parkingBoy.park(car1);
         Ticket ticket2 = parkingBoy.park(car2);
 
         //then
