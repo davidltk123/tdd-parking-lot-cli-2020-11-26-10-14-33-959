@@ -184,4 +184,26 @@ public class ParkingLotServiceManagerTest {
         //then
         assertEquals("Unrecognized parking ticket.",unrecognizedParkingTicketException.getMessage());
     }
+
+    @Test
+    public void should_throw_unrecognized_exception_when_speicify_parking_boy_to_fetch_given_the_ticket_is_fake() throws NotEnoughPositionException, UnrecognizedParkingTicketException {
+        //given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(new ParkingLot(1));
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+
+        ParkingLotServiceManager parkingLotServiceManager = new ParkingLotServiceManager(new ArrayList<>());
+        parkingLotServiceManager.addToManagementList(parkingBoy);
+        Car car = new Car();
+        parkingLotServiceManager.specifyParkingBoyToPark(car,parkingBoy);
+        Ticket fakeTicket = new Ticket();
+
+        //when
+        UnrecognizedParkingTicketException unrecognizedParkingTicketException = assertThrows(UnrecognizedParkingTicketException.class, ()-> {
+            parkingLotServiceManager.specifyParkingBoyToFetch(fakeTicket,parkingBoy);
+        });
+
+        //then
+        assertEquals("Unrecognized parking ticket.",unrecognizedParkingTicketException.getMessage());
+    }
 }
