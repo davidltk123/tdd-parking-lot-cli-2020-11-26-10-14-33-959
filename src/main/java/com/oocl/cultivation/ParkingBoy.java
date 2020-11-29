@@ -29,4 +29,8 @@ public class ParkingBoy {
         }
         throw new UnrecognizedParkingTicketException();
     }
+
+    public List<ParkingLot> getParkingLots(){
+        return this.parkingLots;
+    }
 }
