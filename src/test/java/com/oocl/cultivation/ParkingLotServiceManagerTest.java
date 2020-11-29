@@ -126,4 +126,20 @@ public class ParkingLotServiceManagerTest {
         verify(parkingLot, times(1)).park(car);
 
     }
+
+    @Test
+    public void should_parking_boy_calling_fetch_car_when_fetch_the_car_given_parking_ticket_is_valid() throws NotEnoughPositionException, UnrecognizedParkingTicketException {
+        //given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        ParkingLot parkingLot = Mockito.mock(ParkingLot.class);
+        parkingLots.add(parkingLot);
+        ParkingLotServiceManager parkingLotServiceManager = new ParkingLotServiceManager(parkingLots);
+        Ticket ticket = parkingLot.park(new Car());
+
+        //when
+        parkingLotServiceManager.fetch(ticket);
+
+        //then
+        verify(parkingLot, times(1)).fetch(ticket);
+    }
 }
