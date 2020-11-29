@@ -43,7 +43,7 @@ public class SmartParkingBoyTest {
     }
 
     @Test
-    public void should_throw_not_enough_position_exception_when_park_the_car_given_both_parking_lots_are_full() throws NotEnoughPositionException, UnrecognizedParkingTicketException {
+    public void should_throw_not_enough_position_exception_when_park_the_car_given_both_parking_lots_are_full(){
         //given
         List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot1 = new ParkingLot(0);

@@ -45,7 +45,7 @@ class ParkingBoyTest {
     }
 
     @Test
-    public void should_park_in_first_parking_lot_when_park_the_car_given_both_parking_lots_are_not_full() throws NotEnoughPositionException, UnrecognizedParkingTicketException {
+    public void should_park_in_first_parking_lot_when_park_the_car_given_both_parking_lots_are_not_full() throws NotEnoughPositionException{
         //given
         List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot1 = new ParkingLot(1);
@@ -63,7 +63,7 @@ class ParkingBoyTest {
     }
 
     @Test
-    public void should_park_in_second_parking_lot_when_park_the_car_given_first_parking_lots_is_full() throws NotEnoughPositionException, UnrecognizedParkingTicketException {
+    public void should_park_in_second_parking_lot_when_park_the_car_given_first_parking_lots_is_full() throws NotEnoughPositionException{
         //given
         List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot1 = new ParkingLot(1);
@@ -83,7 +83,7 @@ class ParkingBoyTest {
     }
 
     @Test
-    public void should_throw_not_enough_position_exception_when_park_the_car_given_both_parking_lots_are_full() throws NotEnoughPositionException, UnrecognizedParkingTicketException {
+    public void should_throw_not_enough_position_exception_when_park_the_car_given_both_parking_lots_are_full(){
         //given
         List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot1 = new ParkingLot(0);
@@ -142,7 +142,7 @@ class ParkingBoyTest {
     }
 
     @Test
-    public void should_throw_unrecognized_ticket_exception_when_fetch_the_car_given_ticket_is_fake() throws NotEnoughPositionException, UnrecognizedParkingTicketException {
+    public void should_throw_unrecognized_ticket_exception_when_fetch_the_car_given_ticket_is_fake() throws NotEnoughPositionException{
         //given
         List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot1 = new ParkingLot(1);
