@@ -27,4 +27,25 @@ public class SuperSmartParkingBoyTest {
         //then
         assertEquals(car, parkingLot2.fetch(ticket));
     }
+
+    @Test
+    public void should_park_in_first_parking_lot_when_park_the_car_given_both_parking_lots_has_same_available_position_rate() throws NotEnoughPositionException, UnrecognizedParkingTicketException {
+        //given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        ParkingLot parkingLot1 = new ParkingLot(2);
+        ParkingLot parkingLot2 = new ParkingLot(4);
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLots);
+        parkingLot1.park(new Car());
+        parkingLot2.park(new Car());
+        parkingLot2.park(new Car());   //parkingLot1 1/2    parkingLot2 2/4
+        Car car = new Car();
+
+        //when
+        Ticket ticket = superSmartParkingBoy.park(car);
+
+        //then
+        assertEquals(car, parkingLot1.fetch(ticket));
+    }
 }
