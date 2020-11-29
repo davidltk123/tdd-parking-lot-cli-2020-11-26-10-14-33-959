@@ -38,7 +38,7 @@ class ParkingBoyTest {
         Ticket ticket = parkingLot.park(new Car());
 
         //when
-        parkingLot.fetch(ticket);
+        parkingBoy.fetch(ticket);
 
         //then
         verify(parkingLot, times(1)).fetch(ticket);
@@ -96,10 +96,12 @@ class ParkingBoyTest {
         NotEnoughPositionException notEnoughPositionException = assertThrows(NotEnoughPositionException.class, ()-> {
             parkingBoy.park(new Car());
         });
-        
+
         //then
         assertEquals("Not enough position.",notEnoughPositionException.getMessage());
     }
+
+
 
 
 

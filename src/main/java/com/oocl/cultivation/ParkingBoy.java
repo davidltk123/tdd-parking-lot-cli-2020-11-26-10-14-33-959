@@ -18,4 +18,8 @@ public class ParkingBoy {
         }
         throw new NotEnoughPositionException();
     }
+
+    public Car fetch(Ticket ticket) throws UnrecognizedParkingTicketException {
+        return this.parkingLots.get(0).fetch(ticket);
+    }
 }
