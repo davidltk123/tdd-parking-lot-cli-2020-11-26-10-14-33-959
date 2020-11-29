@@ -36,4 +36,8 @@ public class ParkingLot {
         return this.CAPACITY-this.ticketCarMap.size();
     }
 
+    public double getAvailablePositionRate(){
+        return (double)getEmptyPositions()/CAPACITY;
+    }
+
 }
