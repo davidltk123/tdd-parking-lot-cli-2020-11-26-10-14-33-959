@@ -23,7 +23,10 @@ public class ParkingLotServiceManager extends ParkingBoy{
         return this.managementList;
     }
 
-    public Ticket specifyParkingBoyToPark(Car car, ParkingBoy parkingBoy) {
+    public Ticket specifyParkingBoyToPark(Car car, ParkingBoy parkingBoy) throws NotEnoughPositionException {
+        if(this.managementList.contains(parkingBoy)){
+            return parkingBoy.park(car);
+        }
         return null;
     }
 }
