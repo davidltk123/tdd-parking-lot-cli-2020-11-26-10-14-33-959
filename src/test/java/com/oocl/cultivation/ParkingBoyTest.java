@@ -82,6 +82,25 @@ class ParkingBoyTest {
         assertNotNull(ticket2);
     }
 
+    @Test
+    public void should_throw_not_enough_position_exception_when_park_the_car_given_both_parking_lots_are_full() throws NotEnoughPositionException, UnrecognizedParkingTicketException {
+        //given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        ParkingLot parkingLot1 = new ParkingLot(0);
+        ParkingLot parkingLot2 = new ParkingLot(0);
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+
+        //when
+        NotEnoughPositionException notEnoughPositionException = assertThrows(NotEnoughPositionException.class, ()-> {
+            parkingBoy.park(new Car());
+        });
+        
+        //then
+        assertEquals("Not enough position.",notEnoughPositionException.getMessage());
+    }
+
 
 
 }
