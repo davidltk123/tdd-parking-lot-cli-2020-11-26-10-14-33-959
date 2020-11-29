@@ -45,6 +45,27 @@ public class ParkingLotServiceManagerTest {
     }
 
     @Test
+    public void should_return_null_when_specify_parking_boy_to_park_given_a_car_and_a_not_exist_parking_boy() throws NotEnoughPositionException {
+        //given
+        List<ParkingLot> parkingBoy1ParkingLots = new ArrayList<>();
+        List<ParkingLot> parkingBoy2ParkingLots = new ArrayList<>();
+        parkingBoy1ParkingLots.add(new ParkingLot(1));
+        parkingBoy2ParkingLots.add(new ParkingLot(1));
+        ParkingBoy parkingBoy1 = new ParkingBoy(parkingBoy1ParkingLots);
+        ParkingBoy parkingBoy2 = new ParkingBoy(parkingBoy2ParkingLots);
+
+        ParkingLotServiceManager parkingLotServiceManager = new ParkingLotServiceManager(new ArrayList<>());
+        parkingLotServiceManager.addToManagementList(parkingBoy1);
+        Car car = new Car();
+
+        //when
+        Ticket ticket = parkingLotServiceManager.specifyParkingBoyToPark(car,parkingBoy2);
+
+        //then
+        assertNull(ticket);
+    }
+
+    @Test
     public void should_return_car_when_specify_parking_boy_to_fetch_given_a_valid_ticket_and_parking_boy() throws NotEnoughPositionException, UnrecognizedParkingTicketException {
         //given
         List<ParkingLot> parkingLots = new ArrayList<>();
