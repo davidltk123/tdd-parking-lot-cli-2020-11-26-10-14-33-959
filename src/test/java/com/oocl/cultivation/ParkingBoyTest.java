@@ -101,6 +101,25 @@ class ParkingBoyTest {
         assertEquals("Not enough position.",notEnoughPositionException.getMessage());
     }
 
+    @Test
+    public void should_fetch_from_second_parking_lot_when_fetch_the_car_given_the_car_is_parked_in_second_parking_lot() throws NotEnoughPositionException, UnrecognizedParkingTicketException {
+        //given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        ParkingLot parkingLot1 = new ParkingLot(0);
+        ParkingLot parkingLot2 = new ParkingLot(1);
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        Car car = new Car();
+        Ticket ticket = parkingBoy.park(car);
+
+        //when
+        Car actual = parkingBoy.fetch(ticket);
+
+        //then
+        assertEquals(car,actual);
+    }
+
 
 
 
