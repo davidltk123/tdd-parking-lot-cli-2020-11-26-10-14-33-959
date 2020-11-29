@@ -29,4 +29,8 @@ public class ParkingLotServiceManager extends ParkingBoy{
         }
         return null;
     }
+
+    public Car specifyParkingBoyToFetch(Ticket ticket, ParkingBoy parkingBoy) {
+        return null;
+    }
 }

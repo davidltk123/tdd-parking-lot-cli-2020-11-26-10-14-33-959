@@ -43,4 +43,24 @@ public class ParkingLotServiceManagerTest {
         //then
         assertNotNull(ticket);
     }
+
+    @Test
+    public void should_return_car_when_specify_parking_boy_to_fetch_given_a_valid_ticket_and_parking_boy() throws NotEnoughPositionException {
+        //given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        ParkingLot parkingLot = new ParkingLot(1);
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+
+        ParkingLotServiceManager parkingLotServiceManager = new ParkingLotServiceManager(new ArrayList<>());
+        parkingLotServiceManager.addToManagementList(parkingBoy);
+        Car car = new Car();
+        Ticket ticket = parkingLotServiceManager.specifyParkingBoyToPark(car,parkingBoy);
+
+        //when
+        Car actual = parkingLotServiceManager.specifyParkingBoyToFetch(ticket,parkingBoy);
+
+        //then
+        assertEquals(car,actual);
+    }
 }
