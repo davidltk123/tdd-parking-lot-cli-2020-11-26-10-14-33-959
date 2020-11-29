@@ -49,7 +49,7 @@ public class ParkingLotServiceManagerTest {
     }
 
     @Test
-    public void should_return_null_when_specify_parking_boy_to_park_given_a_car_and_a_not_exist_parking_boy() throws NotEnoughPositionException {
+    public void should_return_null_when_specify_parking_boy_to_park_given_a_car_and_a_parking_boy_not_managed_by_manager() throws NotEnoughPositionException {
         //given
         List<ParkingLot> parkingBoy1ParkingLots = new ArrayList<>();
         List<ParkingLot> parkingBoy2ParkingLots = new ArrayList<>();
@@ -89,7 +89,7 @@ public class ParkingLotServiceManagerTest {
     }
 
     @Test
-    public void should_null_car_when_specify_parking_boy_to_fetch_given_not_exist_parking_boy() throws NotEnoughPositionException, UnrecognizedParkingTicketException {
+    public void should_null_when_specify_parking_boy_to_fetch_given_a_parking_boy_not_managed_by_manager() throws NotEnoughPositionException, UnrecognizedParkingTicketException {
         //given
         List<ParkingLot> parkingBoy1ParkingLots = new ArrayList<>();
         List<ParkingLot> parkingBoy2ParkingLots = new ArrayList<>();
@@ -144,7 +144,7 @@ public class ParkingLotServiceManagerTest {
     }
 
     @Test
-    public void should_throw_not_enough_position_exception_when_speicify_parking_boy_to_park_given_parking_lot_is_full(){
+    public void should_throw_not_enough_position_exception_when_specify_parking_boy_to_park_given_parking_lot_is_full(){
         //given
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot(0));
@@ -164,7 +164,7 @@ public class ParkingLotServiceManagerTest {
     }
 
     @Test
-    public void should_throw_unrecognized_exception_when_speicify_parking_boy_to_fetch_given_the_ticket_is_used() throws NotEnoughPositionException, UnrecognizedParkingTicketException {
+    public void should_throw_unrecognized_exception_when_specify_parking_boy_to_fetch_given_the_ticket_is_used() throws NotEnoughPositionException, UnrecognizedParkingTicketException {
         //given
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot(1));
@@ -186,7 +186,7 @@ public class ParkingLotServiceManagerTest {
     }
 
     @Test
-    public void should_throw_unrecognized_exception_when_speicify_parking_boy_to_fetch_given_the_ticket_is_fake() throws NotEnoughPositionException, UnrecognizedParkingTicketException {
+    public void should_throw_unrecognized_exception_when_specify_parking_boy_to_fetch_given_the_ticket_is_fake() throws NotEnoughPositionException, UnrecognizedParkingTicketException {
         //given
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot(1));
