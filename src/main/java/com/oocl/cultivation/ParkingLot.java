@@ -15,7 +15,6 @@ public class ParkingLot {
     public Ticket park(Car car) throws NotEnoughPositionException {
         if(CAPACITY - this.ticketCarMap.size() <=0){
             throw new NotEnoughPositionException();
-            //return null;
         }
         Ticket ticket = new Ticket();
         ticketCarMap.put(ticket,car);
@@ -28,7 +27,6 @@ public class ParkingLot {
             car = this.ticketCarMap.remove(ticket);
             return car;
         }
-        //return null;
         throw new UnrecognizedParkingTicketException();
     }
 

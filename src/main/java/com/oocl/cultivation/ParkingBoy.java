@@ -2,8 +2,6 @@ package com.oocl.cultivation;
 
 import com.oocl.cultivation.strategy.ParkingStrategy;
 import com.oocl.cultivation.strategy.StandardParking;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingBoy {

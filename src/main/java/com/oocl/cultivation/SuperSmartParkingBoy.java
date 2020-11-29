@@ -1,8 +1,6 @@
 package com.oocl.cultivation;
 
 import com.oocl.cultivation.strategy.SuperSmartParking;
-
-import java.util.Comparator;
 import java.util.List;
 
 public class SuperSmartParkingBoy extends ParkingBoy{

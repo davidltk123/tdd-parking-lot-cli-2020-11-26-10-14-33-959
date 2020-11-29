@@ -4,7 +4,6 @@ import com.oocl.cultivation.Car;
 import com.oocl.cultivation.NotEnoughPositionException;
 import com.oocl.cultivation.ParkingLot;
 import com.oocl.cultivation.Ticket;
-
 import java.util.List;
 
 public class StandardParking implements ParkingStrategy{
