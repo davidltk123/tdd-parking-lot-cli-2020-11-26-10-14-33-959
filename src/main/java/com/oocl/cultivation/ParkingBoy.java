@@ -1,11 +1,14 @@
 package com.oocl.cultivation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ParkingBoy {
-    private ParkingLot parkingLot;
-    public ParkingBoy(ParkingLot parkingLot){
-        this.parkingLot = parkingLot;
+    private List<ParkingLot> parkingLots;
+    public ParkingBoy(List<ParkingLot> parkingLots){
+        this.parkingLots = parkingLots;
     }
     public Ticket park(Car car) throws NotEnoughPositionException {
-        return this.parkingLot.park(car);
+        return null;
     }
 }
