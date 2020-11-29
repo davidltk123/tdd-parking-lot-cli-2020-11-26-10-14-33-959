@@ -142,4 +142,24 @@ public class ParkingLotServiceManagerTest {
         //then
         verify(parkingLot, times(1)).fetch(ticket);
     }
+
+    @Test
+    public void should_throw_not_enough_position_exception_when_speicify_parking_boy_to_park_given_parking_lot_is_full(){
+        //given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(new ParkingLot(0));
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+
+        ParkingLotServiceManager parkingLotServiceManager = new ParkingLotServiceManager(new ArrayList<>());
+        parkingLotServiceManager.addToManagementList(parkingBoy);
+        Car car = new Car();
+
+        //when
+        NotEnoughPositionException notEnoughPositionException = assertThrows(NotEnoughPositionException.class, ()-> {
+            parkingLotServiceManager.specifyParkingBoyToPark(car,parkingBoy);
+        });
+
+        //then
+        assertEquals("Not enough position.",notEnoughPositionException.getMessage());
+    }
 }
